@@ -3,7 +3,7 @@ import os, requests, json
 
 def dcard_picture(dcard_api_url='https://www.dcard.tw/_api/', picture_url='https://i.imgur.com/',
                   forums='forums/pet/posts?popular=false', save_dir='./media/',
-                  keyword='', limit=5):
+                  keyword='', limit=-1):
     if os.path.exists(save_dir) is False:
         os.mkdir(save_dir)
     count = 0
@@ -31,4 +31,7 @@ def dcard_picture(dcard_api_url='https://www.dcard.tw/_api/', picture_url='https
 
 if __name__ == '__main__':
     key = input('輸入關鍵字(可留白):')
-    dcard_picture(keyword=key)
+    number = ''
+    while number.isdigit() is False:
+        number = input('輸入數量(數字, 全部請輸入-1):')
+    dcard_picture(keyword=key, limit=int(number))
