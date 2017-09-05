@@ -30,4 +30,5 @@ def dcard_picture(dcard_api_url='https://www.dcard.tw/_api/', picture_url='https
 
 
 if __name__ == '__main__':
-    dcard_picture(keyword='')
+    key = input('輸入關鍵字(可留白):')
+    dcard_picture(keyword=key)
